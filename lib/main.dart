@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:food_deliveryapp/pages/food/popular_food_detail.dart';
 import 'package:get/get.dart';
 import 'pages/food/recommended_food_detail.dart';
 import 'pages/home/main_food_page.dart';
+import 'helper/dependencies.dart' as dep;
 
-void main() {
+void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
+  await DotEnv().load(fileName: '.env');
+  WidgetsFlutterBinding.ensureInitialized();
+  await dep.init();
   runApp(const MyApp());
 }
 
