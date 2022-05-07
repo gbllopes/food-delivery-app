@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class ApiClient extends GetConnect implements GetxService {
-  late String token;
+  // late String token;
   final String appBaseUrl;
   late Map<String, String> _mainHeaders;
 
@@ -12,10 +12,12 @@ class ApiClient extends GetConnect implements GetxService {
     timeout = Duration(seconds: 30);
     _mainHeaders = {
       'Content-type': 'aplication/json; charset=UTF-8',
-      'Authorization': 'Bearer $token',
+      // 'Authorization': 'Bearer $token',
     };
   }
-  Future<Response> getData(String uri) async {
+  Future<Response> getData(
+    String uri,
+  ) async {
     try {
       Response response = await get(uri);
       return response;
